@@ -1,25 +1,34 @@
 import java.util.Scanner;
 
-public class UseCase2PalindromeCheck {
+public class UseCase4PalindromeCheck {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a string: ");
-        String str = sc.nextLine();
+        String input = sc.nextLine();
 
-        String rev = "";
+        char[] chars = input.toCharArray();
 
-        for (int i = str.length() - 1; i >= 0; i--) {
-            rev = rev + str.charAt(i);
+        int start = 0;
+        int end = chars.length - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
         }
 
-        if (str.equals(rev)) {
-            System.out.println("Palindrome: True");
-        } else {
-            System.out.println("Palindrome: False");
-        }
+        System.out.println("Palindrome: " + isPalindrome);
 
     }
 }
+
